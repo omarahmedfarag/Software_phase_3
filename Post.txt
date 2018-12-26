@@ -1,0 +1,81 @@
+package found_it;
+
+public class Post{
+	static private int autoPostId;
+	private String oneWhoPosted,
+	brand, 
+	category, 
+	color,
+   	description;
+	private int postId;
+	
+	public Post()
+	{
+		autoPostId = 0;
+	}
+	
+	public Post(String oneWhoPosted, String brand, String category, String color, String description) 
+	{
+		
+	}
+	
+	public void setOneWhoPosted(String o)
+	{
+		oneWhoPosted = o;
+	}
+	public String getOneWhoPosted()
+	{
+		return oneWhoPosted;
+	}
+	
+	public void setPostId()
+	{
+		postId = autoPostId++;
+	}
+	public void readPostId(int id)
+	{
+		postId = id;
+		autoPostId = id + 1;
+	}
+ 	public int getPostId()
+	{
+		return postId;
+	}
+	
+ 	public void setBrand(String b)
+	{
+		brand = b;
+	}
+	public String getBrand()
+	{
+		return brand;
+	}
+	
+	public void setCategory(String c)
+	{
+		category = c;
+	}
+	public String getCategory()
+	{
+		return category;
+	}
+	
+	public void setColor(String c)
+	{
+		color = c;
+	}
+	public String getColor()
+	{
+		return color;
+	}
+	
+	public void setDescription(String d)
+	{
+		description = d;
+	}
+	public String getDescription()
+	{
+		return description;
+	}
+	
+}

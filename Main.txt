@@ -1,0 +1,105 @@
+package found_it;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		Scanner cin = new Scanner(System.in);
+		UserController userController = new UserController();
+		PostController postC = new PostController();
+		postC.initializeDatabaseArray();
+		User tmp = new User();
+		while (true) 
+		{
+			System.out.println("Sign in (1)");
+			System.out.println("Sign up (2)");
+			int choice = cin.nextInt();
+			if (choice == 1) 
+			{
+				System.out.println("Enter Your Username: ");
+				tmp.setUsername(cin.next());
+				System.out.println("Enter Your Password: ");
+				tmp.setPass(cin.next());
+				boolean signedIn = userController.verifySign_in(tmp.getUsername(), tmp.getPass());
+				if(signedIn == true)
+					break;
+				else
+					System.out.println("Username or Password is incorrect!!");
+			}
+			else if(choice == 2)
+			{
+				System.out.println("Enter Your Username: ");
+				tmp.setUsername(cin.next());
+				System.out.println("Enter Your E-mail: ");
+				tmp.setEmail(cin.next());
+				System.out.println("Enter Your Phone Number: ");
+				tmp.setPhone(cin.next());
+				System.out.println("Enter Your Password: ");
+				tmp.setPass(cin.next());
+				int registered = userController.register(tmp);
+				if(registered == 0)
+					break;
+				else if(registered == 1)
+					System.out.println("The Username you entered is already taken");
+				else if(registered == 2)
+					System.out.println("This E-mail you entered is already taken");
+				else if(registered == 3)
+				{
+					System.out.println("The Username you entered is already taken");
+					System.out.println("This E-mail you entered is already taken");					
+				}
+
+			}
+		}
+		while(true)
+		{
+			System.out.println("Create Post (1)");
+			System.out.println("Delete Post (2)");
+			System.out.println("Update Post (3)");
+			System.out.println("Search for Post (4)");
+			System.out.println("Update Your Information (5)");
+			System.out.println("Exit (0)");
+			int choice = cin.nextInt();
+			if(choice == 1)
+			{
+				postC.createPost(tmp);
+				System.out.println("Post created successfully");
+			}
+			else if(choice == 2)
+			{
+				System.out.println("Enter post's ID: ");
+				int id = cin.nextInt();
+				postC.deletePost(id, tmp);
+
+			}
+			else if(choice == 3)
+			{
+				System.out.println("Enter post's ID: ");
+				int id = cin.nextInt();
+				postC.updatePost(id, tmp);
+			}
+			else if(choice == 4)
+			{
+				System.out.println("Enter post's category : ");
+				String cat = cin.next();
+				postC.getPost(cat);
+			}
+			else if(choice == 5)
+			{
+				userController.updateuser(tmp);
+				System.out.println("Information Updated Successfully");
+			}
+			else if(choice == 0)
+			{
+				break;
+			}
+
+		}
+		cin.close();
+		userController.writeDB();
+		postC.initializeDatabaseFile();
+
+	}
+}

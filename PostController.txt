@@ -1,0 +1,66 @@
+package found_it;
+
+
+import java.io.File;
+
+import java.util.ArrayList;
+
+import java.util.Formatter;
+
+import java.util.Scanner;
+
+
+
+public class PostController {
+
+	int numberOfPosts = 0;
+
+	ArrayList<Post> postsDatabase = new ArrayList<Post>();
+
+	public void createPost(User user)
+	{
+	
+	}
+	
+	public void deletePost(int id, User user)
+	{
+
+	}
+
+	public void updatePost(int id, User user)
+	{
+
+	}
+
+	public void getPost(String Categ)
+
+	{
+
+	}
+
+
+	public void initializeDatabaseFile()
+
+	{
+
+	}
+
+	public void initializeDatabaseArray()
+
+
+}
+ 	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
