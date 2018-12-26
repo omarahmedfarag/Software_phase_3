@@ -1,0 +1,69 @@
+package found_it;
+
+import java.util.*;
+
+
+public class User {
+	
+	private String username;
+	private String email;
+	private String phone;
+	private String pass;
+	public List<Integer> posts= new ArrayList<Integer>();
+	
+ 
+ 
+  public User(String name, String eml, String pw, String num)
+  {
+	  setUsername(name);
+	  setEmail(eml);
+	  setPhone(num);
+	  setPass(pw);
+  }
+  
+  public User()
+  {
+	  
+  }
+  
+
+
+public String getUsername() {
+	return username;
+}
+
+
+public void setUsername(String username) {
+	this.username = username;
+}
+
+
+public String getEmail() {
+	return email;
+}
+
+
+public void setEmail(String email) {
+	this.email = email;
+}
+
+
+public String getPhone() {
+	return phone;
+}
+
+
+public void setPhone(String phone) {
+	this.phone = phone;
+}
+
+
+public String getPass() {
+	return pass;
+}
+
+
+public void setPass(String pass) {
+	this.pass = pass;
+}
+}
