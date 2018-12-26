@@ -1,0 +1,59 @@
+package found_it;
+
+
+import found_it.User;
+
+
+import java.io.File;
+
+import java.io.FileNotFoundException;
+
+import java.io.IOException;
+import java.util.*;
+
+
+public class UserController {
+
+
+	private List<User> users= new ArrayList<User>();
+
+
+	public UserController()
+	{	
+	
+	}
+
+	public int register(User newuser)
+	{
+
+	}
+
+	public boolean verifySign_in(String name, String pass)
+
+
+	{
+
+	}
+
+
+	public boolean updateuser(User uname)
+
+	{
+
+	}
+
+
+	public void writeDB()
+	{
+
+	}
+}
+
+
+
+
+
+
+
+
+
