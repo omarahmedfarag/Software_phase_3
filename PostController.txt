@@ -1,185 +1,66 @@
 package found_it;
 
+
 import java.io.File;
+
 import java.util.ArrayList;
+
 import java.util.Formatter;
+
 import java.util.Scanner;
 
 
+
 public class PostController {
+
 	int numberOfPosts = 0;
+
 	ArrayList<Post> postsDatabase = new ArrayList<Post>();
-	
+
 	public void createPost(User user)
 	{
-		Scanner cin = new Scanner(System.in);
-		System.out.println("Enter Item's Brand: ");
-		String brand  = cin.nextLine();
-		
-		System.out.println("Enter Item's Category: ");
-		String category  = cin.nextLine();
-		
-		System.out.println("Enter Item's Color: ");
-		String color  = cin.nextLine();
-		
-		System.out.println("Enter Item's Description: ");
-		String description  = cin.nextLine();
-//		cin.close();
-		
-		Post obj = new Post(user.getUsername(), brand, category, color, description);
-		postsDatabase.add(obj);
-		numberOfPosts++;
-		
+	
 	}
 	
 	public void deletePost(int id, User user)
 	{
-		for(int i = 0; i < numberOfPosts; i++)
-		{
-			Post ID = postsDatabase.get(i);
-			if(id == ID.getPostId())
-			{
-				if(user.getUsername().equals(ID.getOneWhoPosted()))
-				{
-					postsDatabase.remove(i);
-					System.out.println("Post deleted successfully");
-				}
-				else
-					System.out.println("you can't delete this post, it's not yours");
-				break;
-			}
-		}
+
 	}
-	
+
 	public void updatePost(int id, User user)
 	{
-		int index = 0;
-		for(int i = 0; i < numberOfPosts; i++)
-		{
-			Post ID = new Post();
-			ID = postsDatabase.get(i);
-			if(id == ID.getPostId())
-			{
-				if(!ID.getOneWhoPosted().equals(user.getUsername()))
-				{
-					System.out.println("you can't update this post, its isn't yours");
-					return;
-				}
-				index = i;
-				break;
-			}
-		}
-		Scanner cin = new Scanner(System.in);
-		String oper;
-		System.out.println("Update Brand? (yes or no)");
-		oper = cin.next();
-		if(oper.equals( "yes"))
-		{
-			System.out.println("Enter Brand: ");
-			String brand = cin.next();
-			postsDatabase.get(index).setBrand(brand);
-		}
-		System.out.println("Update Category? (yes or no)");
-		oper = cin.next();
-		if(oper.equals("yes"))
-		{
-			System.out.println("Enter Category: ");
-			String category = cin.next();
-			postsDatabase.get(index).setCategory(category);
-		}
-		
-		System.out.println("Update Color? (yes or no)");
-		oper = cin.next();
-		if(oper.equals("yes"))
-		{
-			System.out.println("Enter Color: ");
-			String color = cin.next();
-			postsDatabase.get(index).setColor(color);
-		}
-		
-		System.out.println("Update Description? (yes or no)");
-		oper = cin.next();
-		if(oper.equals( "yes"))
-		{
-			System.out.println("Enter Description: ");
-			String description = cin.next();
-			postsDatabase.get(index).setDescription(description);
-		}
-		System.out.println("Post updated successfully");
-	}
-	
-	public void getPost(String Categ)
-	{
-		Post ID = new Post();
-		boolean found = false;
-		for(int i = 0; i < numberOfPosts; i++)
-		{
-			ID = postsDatabase.get(i);
-			if(ID.getCategory().equals(Categ)) 
-			{
-				found = true;
-				System.out.println("Post: " + ID.getPostId());
-				System.out.println("Posted By: " + ID.getOneWhoPosted());
-				System.out.println("Brand: " + ID.getBrand());
-				System.out.println("Category: " + ID.getCategory());
-				System.out.println("Color: " + ID.getColor());
-				System.out.println("Description: " + ID.getDescription());
-				System.out.println("--------------------------------------------------");
-			}
-		}
-		if(!found)
-			System.out.println("Can't find any post with category");
-	}
-	public void initializeDatabaseFile()
-	{
-		try
-		{
-			Formatter cout = new Formatter(new File("PostDB.txt"));
-			for(int i = 0; i < postsDatabase.size(); i++)
-			{
-				Post obj = postsDatabase.get(i);
-				cout.format("%s %s %s %s %s %s ", 
-						obj.getPostId(), 
-						obj.getOneWhoPosted(), 
-						obj.getBrand(), 
-						obj.getCategory(), 
-						obj.getColor(), 
-						obj.getDescription());
-			}
-			cout.close();
-		}
-		catch(Exception e)
-		{
-			System.out.println("error ");
-		}
-			
-	}
-	
-	public void initializeDatabaseArray()
-	{
-		try
-		{
-			Scanner cin = new Scanner(new File("PostDB.txt"));
-			while(cin.hasNext())
-			{
-				Post obj = new Post();
-				obj.readPostId(cin.nextInt());
-				obj.setOneWhoPosted(cin.next());
-				obj.setBrand(cin.next());
-				obj.setCategory(cin.next());
-				obj.setColor(cin.next());
-				obj.setDescription(cin.next());
-				postsDatabase.add(obj);
-			}
-			numberOfPosts = postsDatabase.size();
-			cin.close();
-		}
-		catch(Exception e)
-		{
-			System.out.println("error");
 
-		}
 	}
-	
-	
+
+	public void getPost(String Categ)
+
+	{
+
+	}
+
+
+	public void initializeDatabaseFile()
+
+	{
+
+	}
+
+	public void initializeDatabaseArray()
+
+
 }
+ 	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
